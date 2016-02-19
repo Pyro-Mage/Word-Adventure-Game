@@ -8,7 +8,7 @@ public class TextController : MonoBehaviour
 
 	private enum States
 	{
-cell,
+		cell,
 		sheets_0,
 		sheets_1,
 		lock_0,
@@ -29,22 +29,32 @@ cell,
 	void Update ()
 	{
 		print (myState);
-		if (myState == States.cell) {
-			state_cell ();
-		} else if (myState == States.sheets_0) {
-			state_sheets_0 ();
-		} else if (myState == States.sheets_1) {
-			state_sheets_1 ();
-		} else if (myState == States.lock_0) {
-			state_lock_0 ();
-		} else if (myState == States.lock_1) {
-			state_lock_1 ();
-		} else if (myState == States.mirror) {
-			state_mirror ();
-		} else if (myState == States.cell_mirror) {
-			state_cell_mirror ();
-		} else if (myState == States.freedom) {
-			state_freedom ();
+		switch (myState)
+		{
+			case States.cell:
+				state_cell();
+				break;
+			case States.sheets_0:
+				state_sheets_0();
+				break;
+			case States.sheets_1:
+				state_sheets_1();
+				break;
+			case States.locl_0:
+				state_lock_0();
+				break;
+			case States.lock_1:
+				state_lock_1();
+				break;
+			case States.mirror:
+				state_mirror();
+				break;
+			case States.cell_mirror:
+				state_cell_mirror();
+				break;
+			default:
+				state_freedom();
+				break;
 		}
 	}
 
